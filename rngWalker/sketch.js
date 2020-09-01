@@ -1,4 +1,4 @@
-
+//Creates random wlakers
 
 let time
 let trail1
