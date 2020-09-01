@@ -3,6 +3,7 @@
 let time
 let trail1
 let walker
+let walker2
 
 let operator = (x,y,color)=>{
 	angleMode(DEGREES)
@@ -17,13 +18,22 @@ let operator = (x,y,color)=>{
 
 }
 
+let operator2 = (x,y,color)=>{
+	stroke(0)
+	fill(color)
+	ellipse(x,y,time%20,time%20)
+}
+
 function setup() {
 
 	createCanvas(600, 600);
 	trail1 = new TrailRenderer(color(0,0,0),operator)
+	trail2 = new TrailRenderer(color(0,100,120),operator2)
 	walker = new Walker(width/2,height/2,trail1)
+	walker2 = new Walker(width/2,height/2,trail2)
 	time = 0
 	console.log(walker);
+	console.log(walker2);
 	
 }
 
@@ -33,6 +43,8 @@ function draw() {
 	walker.walk(random(-4,4),random(-4,4))
 	//walker.walk(mouseX,mouseY)
 	walker.show()
+	walker2.walk(random(-10,10),random(-10,10))
+	walker2.show()
 }
 
 class Walker{
